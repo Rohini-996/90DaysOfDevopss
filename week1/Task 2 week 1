@@ -1,0 +1,46 @@
+#Study the most commonly used protocols (e.g., HTTP, HTTPS, FTP, SSH, DNS) and their port numbers.
+#Task2 : Create a blog, article, GitHub page, or README listing these protocols and explaining their relevance to DevOps workflows.
+
+Solution: 
+1. HTTP (Hyper Text Transfer Protocol)
+•	Port Number: 80
+•	Description: HTTP is the foundation of data communication on the web. It is used by web browsers and servers to communicate over the internet. 
+HTTP operates as a request-response protocol where clients (typically browsers) make requests, and servers send back responses (usually web pages).
+•	Relevance to DevOps: 
+o	Deployment and Web Servers: HTTP is often used in DevOps environments to host websites and web applications.
+o	Continuous Delivery: Web-based CI/CD tools often rely on HTTP for communication and access to build artifacts.
+o	API Communication: DevOps pipelines often integrate with external services using HTTP APIs
+-----------------------------------------
+2. HTTPS (HyperText Transfer Protocol Secure)
+•	Port Number: 443
+•	Description: HTTPS is the secure version of HTTP. It encrypts the data exchanged between the client and the server using SSL/TLS, ensuring that sensitive information 
+  like passwords and credit card numbers are securely transmitted.
+•	Relevance to DevOps: 
+o	Secure Communication: HTTPS is essential for secure deployment and communication, particularly in production environments where data integrity and security are paramount.
+o	SSL/TLS Certificates: DevOps often involves managing and configuring SSL/TLS certificates to enable HTTPS for secure web services.
+---------------------------------------------
+3. FTP (File Transfer Protocol)
+•	Port Numbers: 20 (Data), 21 (Command)
+•	Description: FTP is a standard network protocol used for transferring files between a client and a server. FTP is often used for uploading or downloading large files.
+•	Relevance to DevOps: 
+o	File Deployment: FTP is used in environments where code, scripts, or configuration files need to be uploaded or downloaded between servers.
+o	Automation: DevOps pipelines may automate FTP uploads or downloads as part of deployment processes, especially for legacy systems.
+o	Legacy Systems: FTP might be used in environments where newer protocols (like SFTP) are not supported.
+----------------------------------------------
+4. SSH (Secure Shell)
+•	Port Number: 22
+•	Description: SSH is a cryptographic network protocol used for secure remote login and command execution over an insecure network. SSH is commonly used to access and manage remote servers securely.
+•	Relevance to DevOps: 
+o	Infrastructure Management: DevOps teams frequently use SSH to remotely access and manage servers, whether for deploying code, troubleshooting issues, or performing maintenance.
+o	Automation & Scripting: SSH is often used in automation scripts to perform operations like provisioning, deployment, or configuration management on remote systems.
+o	Secure Connectivity: SSH ensures that DevOps professionals can securely communicate with cloud and on-premises servers.
+---------------------------------------------------
+5. DNS (Domain Name System)
+•	Port Number: 53
+•	Description: DNS is a hierarchical naming system used to translate human-readable domain names (like www.example.com) into IP addresses that computers can understand.
+•	Relevance to DevOps: 
+o	Service Discovery: DNS plays a critical role in DevOps, especially in microservices-based architectures, by enabling services to discover each other using domain names.
+o	Scalability: In environments with dynamic IP addresses (such as cloud infrastructure), DNS enables seamless access to services regardless of IP changes.
+o	Load Balancing: DNS is often used to distribute traffic across multiple servers for load balancing, ensuring high availability of services in a DevOps setup
+
+So, here is a step by step guide on how this protocols are important in Devops Workflows.
