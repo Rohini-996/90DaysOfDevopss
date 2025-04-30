@@ -1,0 +1,57 @@
+#Task 1: Write examples of how each layer applies to real-world scenarios (e.g., HTTP at the Application Layer, TCP at the Transport Layer).
+
+1. Application Layer (Layer 7):
+Example: HTTP (Hypertext Transfer Protocol)
+
+Real-World Scenario: When you visit a website, your web browser (like Chrome or Firefox) uses HTTP to request web pages from a server. 
+This layer makes sure your web browser can talk to the server and get the content you want, like images or text.
+
+Example in Action: Typing a website address (URL) into your browser and loading a page is the Application Layer working.
+
+2. Presentation Layer (Layer 6):
+Example: SSL/TLS (Encryption)
+
+Real-World Scenario: When you shop online, SSL/TLS encrypts your payment information to keep it safe. The Presentation Layer 
+ensures the data is secure and understandable by both sides of the communication, even if it's encrypted.
+
+Example in Action: When you're making an online purchase, SSL/TLS keeps your sensitive data (like credit card details) secure while being transmitted.
+
+3. Session Layer (Layer 5):
+Example: NetBIOS or Remote Procedure Call (RPC)
+
+Real-World Scenario: This layer keeps the communication between two devices active, like during a video call or an online gaming session.
+It ensures that your session stays open, so you can keep chatting, playing, or browsing without interruptions.
+
+Example in Action: During a Zoom meeting, the Session Layer keeps the connection live as you talk with others.
+
+4. Transport Layer (Layer 4):
+Example: TCP (Transmission Control Protocol)
+
+Real-World Scenario: When you send an email, TCP makes sure the message is properly broken into smaller pieces, sent, and then
+reassembled in the right order when it reaches its destination. It also makes sure none of the pieces get lost along the way.
+
+Example in Action: Streaming a video on YouTube, where TCP ensures that video data arrives smoothly and in the correct order, so you can watch it without interruptions.
+
+5. Network Layer (Layer 3):
+Example: IP (Internet Protocol)
+
+Real-World Scenario: This layer is in charge of figuring out how to send data from one place to another across different networks. For example,
+when you send an email, the Network Layer ensures your data is routed to the correct server, no matter how many routers it passes through.
+
+Example in Action: Sending an email from your smartphone, where the Network Layer helps route the data to the correct destination across the internet.
+
+6. Data Link Layer (Layer 2):
+Example: Ethernet, Wi-Fi
+
+Real-World Scenario: This layer ensures that data gets from your device to the local network (like your router). It’s responsible for addressing your
+device with unique identifiers (like a MAC address) and making sure data can travel over physical connections like Wi-Fi or Ethernet cables.
+
+Example in Action: Connecting to Wi-Fi at home—your laptop or phone uses the Data Link Layer to establish communication with the router via its MAC address.
+
+7. Physical Layer (Layer 1):
+Example: Ethernet Cables, Fiber Optic Cables, Wi-Fi Signals
+
+Real-World Scenario: The Physical Layer is about the actual hardware—wires, cables, or radio signals—that carry data. It’s like the “highway” that 
+data travels on. For example, it turns data into electrical signals to be sent through cables or wireless signals.
+
+Example in Action: Using a cable to connect your computer to the internet, or using Wi-Fi to connect wirelessly, the Physical Layer ensures the data is physically sent over the correct medium.
