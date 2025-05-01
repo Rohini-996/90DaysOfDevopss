@@ -1,0 +1,24 @@
+#Task 3: Write a step-by-step guide or blog on how to create and configure Security Groups.
+
+Solution : Step 1 :First we have to launch an Ec2 instance which is free tier ex: aws-free-tier.
+           Step 2: Then we have to scroll down and there is Firewall (security groups) it have two options Create security group, Select existing security group.
+           Step 3: We have to click on Create security group.
+           Step 4: There is default security group ex: 'launch-wizard-1' and there is default tick on ssh tickbox.
+           Step 5: Then we have to lauch instance by clicking on launch instance.
+           Step 6: And them boommmmm our instance is succesfully created.
+           Step 7: After creating we have to start instance by clicking on instance state start instance.
+           Step 8: The instance is succesufully started and running.
+           Step 9: Then we have to click on security.
+           Step 10: In security part there is security group go to security group.
+           Step 11: There is Inbound rules which control incoming traffic to your instance.
+           Step 12: In inbound rules there are three default types which is TCP HTTP & HTTPS.
+           Step 13: Default protocol is TCP.
+           Step 14: SSH port number is 22.
+           Step 15: HTTP port number is 80.
+           Step 16: HTTPS port number is 443.
+           Step 17: We can also set our own rule by clicking on edit inbound rules and add rule.
+           Step 18: In security group there is one more rule called Outbound rule.
+           Step 19: Outbound rules control outgoing traffic from your instance.
+           Step 20: We can also edit outbound rule.
+
+So, here is a step-by-step guilde on how to create a security groups and configure Security Groups.
