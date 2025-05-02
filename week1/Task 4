@@ -1,0 +1,112 @@
+# Hands-On with Networking Commands
+# Practice essential networking commands like:
+. ping (check connectivity)
+. traceroute / tracert (trace packet routes)
+. netstat (network statistics)
+. curl (make HTTP requests)
+. dig / nslookup (DNS lookup)
+#Task 4: Create a cheat sheet or short guide explaining the purpose and usage of each command.
+
+Solution: The above commands are networking commands
+
+1. ping (check connectivity): Ping command is used to check website connectivity whether a website is running properly or not
+ping command is used to check whether data transfer correctly to particular webside or not
+e.g = ping youtube.com
+PING youtube.com (142.250.192.110) 56(84) bytes of data.
+64 bytes from bom12s17-in-f14.1e100.net (142.250.192.110): icmp_seq=1 ttl=116 time=75.5 ms
+64 bytes from bom12s17-in-f14.1e100.net (142.250.192.110): icmp_seq=2 ttl=116 time=129 ms
+64 bytes from bom12s17-in-f14.1e100.net (142.250.192.110): icmp_seq=3 ttl=116 time=56.6 ms
+--- youtube.com ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2141ms
+rtt min/avg/max/mdev = 56.592/86.905/128.575/30.464 ms
+The above command show how to ping a particular website
+In above example data is successfully tansmitted and received and there is 0 packet loss.
+******* As a devops enjinner we need to ping websites daily to check connectivity or data is succesfully sent and receive ********
+
+2. netstat (network statistics)
+For netstat command we have to install net-tools, the command is
+. sudo apt-get install net-tools
+. netstat stands for network statistics
+. netstat command is used to show active internet connection on your system
+e.g netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      1 172.23.17.64:35438      ec2-54-217-10-153:https SYN_SENT
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ]         DGRAM                    20225    /run/user/1000/systemd/notify
+unix  2      [ ]         DGRAM                    231      /var/run/chrony/chronyd.sock
+unix  3      [ ]         DGRAM      CONNECTED     1080     /run/systemd/notify
+unix  2      [ ]         DGRAM                    1094     /run/systemd/journal/syslog
+unix  7      [ ]         DGRAM      CONNECTED     1096     /run/systemd/journal/dev-log
+unix  8      [ ]         DGRAM      CONNECTED     1098     /run/systemd/journal/socket
+unix  3      [ ]         STREAM     CONNECTED     19712    @dca604012932c761/bus/systemd-timesyn/bus-api-timesync
+unix  3      [ ]         STREAM     CONNECTED     20229    @ae668444fa449f74/bus/systemd/bus-system
+unix  3      [ ]         STREAM     CONNECTED     1351     @634233a62a02f079/bus/systemd/bus-api-system
+unix  3      [ ]         STREAM     CONNECTED     22697    @3c6d6b7317b0b00/bus/systemd-resolve/bus-api-resolve
+unix  3      [ ]         STREAM     CONNECTED     457      @b33e1969fa97adf8/bus/systemd-logind/system
+unix  3      [ ]         STREAM     CONNECTED     22264    /run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     20565    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM      CONNECTED     196
+
+The above command shows how netsat command is working 
+
+3. traceroute
+For traceroute command we have to install traceroute, the command is
+. sudo apt-get install traceroute
+. traceroute command determines the path a packet take to reach a destination by following ip addresses
+. e.g traceroute youtube.com
+traceroute to youtube.com (142.250.192.78), 30 hops max, 60 byte packets
+ 1  LAPTOP-6F2K1CME.mshome.net (172.23.16.1)  0.667 ms  0.621 ms  0.606 ms
+ 2  192.168.83.190 (192.168.83.190)  10.217 ms  10.165 ms  10.148 ms
+ 3  106.200.139.225 (106.200.139.225)  65.108 ms  66.413 ms  67.383 ms
+ 4  106.200.69.131 (106.200.69.131)  66.393 ms 106.200.69.129 (106.200.69.129)  67.902 ms  66.035 ms
+ 5  nsg-corporate-161.207.186.122.airtel.in (122.186.207.161)  65.980 ms  66.961 ms nsg-corporate-153.207.186.122.airtel.in (122.186.207.153)  67.287 ms
+ 6  116.119.36.184 (116.119.36.184)  66.921 ms  64.864 ms 116.119.158.84 (116.119.158.84)  64.491 ms
+ 7  72.14.213.254 (72.14.213.254)  63.510 ms  50.838 ms  50.794 ms
+ 8  * * *
+ 9  72.14.237.10 (72.14.237.10)  54.958 ms 209.85.240.54 (209.85.240.54)  46.327 ms 142.250.214.100 (142.250.214.100)  72.205 ms
+10  192.178.110.244 (192.178.110.244)  72.144 ms 142.250.226.66 (142.250.226.66)  72.191 ms 142.250.61.203 (142.250.61.203)  53.212 ms
+11  192.178.110.107 (192.178.110.107)  72.169 ms 192.178.110.199 (192.178.110.199)  72.163 ms 192.178.110.105 (192.178.110.105)  74.615 ms
+12  bom12s16-in-f14.1e100.net (142.250.192.78)  72.017 ms  72.007 ms  71.997 ms
+
+In above example traceroute command show how source reaches destination through ip addresses 
+
+4. curl (make HTTP requests)
+The curl command lets you send or fetch data from an endpoint using different HTTP methods:
+GET – the default method that fetches data from the server. POST – sends data to the endpoint. PUT – creates a resource on the endpoint or updates an existing one
+e.g  curl -X GET https://api.restful-api.dev/objects
+[{"id":"1","name":"Google Pixel 6 Pro","data":{"color":"Cloudy White","capacity":"128 GB"}},{"id":"2","name":"Apple iPhone 12 Mini, 256GB, Blue","data":null},
+{"id":"3","name":"Apple iPhone 12 Pro Max","data":{"color":"Cloudy White","capacity GB":512}},{"id":"4","name":"Apple iPhone 11, 64GB","data":{"price":389.99,"color":"Purple"}},
+{"id":"5","name":"Samsung Galaxy Z Fold2","data":{"price":689.99,"color":"Brown"}},{"id":"6","name":"Apple AirPods","data":{"generation":"3rd","price":120}},{"id":"7","name":"Apple MacBook Pro 16","data":{"year":2019,"price":1849.99,"CPU model":"Intel Core i9","Hard disk size":"1 TB"}},{"id":"8","name":"Apple Watch Series 8","data":{"Strap Colour":"Elderberry","Case Size":"41mm"}},{"id":"9","name":"Beats Studio3 Wireless","data":{"Color":"Red","Description":"High-performance wireless noise cancelling headphones"}},{"id":"10","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"64 GB","Screen size":7.9}},{"id":"11","name":"Apple iPad Mini 5th Gen","data":{"Capacity":"254 GB","Screen size":7.9}},{"id":"12","name":"Apple iPad Air","data"
+:{"Generation":"4th","Price":"419.99","Capacity":"64 GB"}},{"id":"13","name":"Apple iPad Air","data":{"Generation":"4th","Price":"519.99","Capacity":"256 GB"}}]
+
+In above command curl fetch the data of an api which is of phone
+
+5.  dig / nslookup (DNS lookup)
+. The dig command is a command-line tool that queries the Domain Name System (DNS).
+. It can be used to troubleshoot network and domain issues, and perform other DNS operations.
+e.g dig youtube.com
+; <<>> DiG 9.18.30-0ubuntu0.24.04.2-Ubuntu <<>> youtube.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9207
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1280
+;; QUESTION SECTION:
+;youtube.com.                   IN      A
+
+;; ANSWER SECTION:
+youtube.com.            282     IN      A       142.251.42.78
+
+;; Query time: 70 msec
+;; SERVER: 10.255.255.254#53(10.255.255.254) (UDP)
+;; WHEN: Mon Mar 10 10:21:59 UTC 2025
+;; MSG SIZE  rcvd: 56
+
+In above command show dig query for youtube.com successfully returned the IP address 142.251.42.78 with a TTL of 282 seconds.
+The query took 70 milliseconds and was processed by the DNS server at 10.255.255.254.
+
+so, here is a cheatsheet of some basic to intermediate networking commands.
