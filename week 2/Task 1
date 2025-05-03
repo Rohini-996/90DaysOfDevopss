@@ -1,0 +1,40 @@
+. Learn about Linux users, groups, and permissions (/etc/passwd, /etc/group).
+#Task 1:
+. Create a user devops_user and add them to a group devops_team.
+. Set a password and grant sudo access.
+. Restrict SSH login for certain users in /etc/ssh/sshd_config.
+------------------------------------------------------------------------------------------------
+. Create a user devops_user and add them to a group devops_team.
+Solution : 
+For creating a user in ubuntu (Linux) you have to type a command sudo useradd -m user
+-m stands for creating a folder of that particular user
+eg : sudo useradd -m devops_user
+This will add a user devops_user
+For adding devops_user in a group devops_team we have to following command:
+sudo usermod -a -G devops_team devopss_user
+This will add devops_user to devops_team
+....................................................................................................
+. Set a password and grant sudo access.
+Solution: 
+For setting a password to particular user the command is:
+sudo passwd devopss_user
+OUTPUT:
+New password:
+Retype new password:
+passwd: password updated successfully
+.......................................................................................................
+. Restrict SSH login for certain users in /etc/ssh/sshd_config.
+Solution: 
+Linux systems manage SSH (Secure Shell) settings through a powerful config file that is /etc/ssh/sshd_config
+This file is the core of SSH server settings. It defines who is allowed to remotely access your server and under what condition
+Why it matters:
+By default, SSH access is open to all users on a system — but in a secure environment, not everyone should have remote access.
+This simple step helps reduce the attack surface.
+For Eg: In /etc/ssh/sshd_config, I added:
+AllowUsers devops_user
+or to block specific user
+DenyUsers testuser tempuser
+Then restart ssh by typing 
+sudo systemctl restart sshd
+Now, Only trusted users can now log in via SSH. This simple step can reduce higher chances of attacks.
+.............................................................................................................
