@@ -1,0 +1,58 @@
+2️⃣ File & Directory Permissions
+#Task 2:
+Create /devops_workspace and a file project_notes.txt.
+Set permissions:
+Owner can edit, group can read, others have no access.
+Use ls -l to verify permissions.
+
+Solution:
+🔐 Understanding File & Directory Permissions in Linux
+📁 #Task 2 – Hands-On with Permissions
+
+✅ Goal:
+Create a directory devops_workspace and a file project_notes.txt with specific permissions:
+
+Owner: Can edit (read/write)
+
+Group: Can read only
+
+Others: ❌ No access
+
+Steps to Follow:
+1️⃣ Create the directory:
+
+mkdir devops_workspace
+
+2️⃣ Create the file inside the directory:
+
+touch devops_workspace/project_notes.txt
+
+3️⃣ Set the correct permissions:
+
+chmod 750 devops_workspace
+chmod 640 devops_workspace/project_notes.txt
+
+🔍 What do these permissions mean?
+7 (Owner): Read + Write + Execute (rwx)
+
+5 (Group): Read + Execute (r-x) for directory
+
+0 (Others): No permissions (---)
+
+For the file:
+
+6 (Owner): Read + Write (rw-)
+
+4 (Group): Read-only (r--)
+
+0 (Others): No access (---)
+
+✅ Verify with:
+ls -l devops_workspace
+
+📄 Expected output:
+drwxr-x--- 2 ubuntu ubuntu 4096 May  4 06:13 devops_workspace
+-rw-r----- 1 ubuntu ubuntu    0 May  4 06:13 project_notes.txt
+
+Pro Tip: Setting the right permissions helps secure your system and ensures that only the right people have access. 
+A must-know for every DevOps Enginner.
