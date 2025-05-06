@@ -1,0 +1,49 @@
+3️⃣ Log File Analysis with AWK, Grep & Sed
+Logs are crucial in DevOps! You’ll analyze logs using the Linux_2k.log file from LogHub (GitHub Repo).
+
+Task:
+Download the log file from the repository.
+Extract insights using commands:
+Use grep to find all occurrences of the word "error".
+Use awk to extract timestamps and log levels.
+Use sed to replace all IP addresses with [REDACTED] for security.
+Bonus: Find the most frequent log entry using awk or sort | uniq -c | sort -nr | head -10.
+
+Solution : Okay our first task is to download Linux_2K.log file
+To find word error using grep the command is:
+grep -i "error" Linux_2k.log
+
+🔍 1. Occurrences of the word "error" (grep)
+✅ Result: 0 lines contain the word "error" (case-insensitive)
+
+🕓 2. Timestamps and Log Levels (awk-like behavior)
+✅ Sample Timestamps Extracted:
+
+Jun 14 15:16:01
+
+Jun 14 15:16:02
+
+Jun 14 15:16:02
+
+Jun 15 02:04:59
+
+Jun 15 02:04:59
+
+✅ Log Levels Found:
+
+info: 11 occurrences
+
+warning: 2 occurrences
+
+🔐 3. IP Address Redaction (sed)
+✅ Sample Redacted Lines:
+
+Jun 14 15:16:01 combo sshd(pam_unix)[19939]: authentication failure; ... rhost=[REDACTED]
+Jun 14 15:16:02 combo sshd(pam_unix)[19937]: check pass; user unknown
+Jun 14 15:16:02 combo sshd(pam_unix)[19937]: authentication failure; ... rhost=[REDACTED]
+
+🏆 4. Most Frequent Log Entries (Bonus Task)
+Each of the top 10 log entries appeared only once, so there’s no repeated log message. Sample entries:
+
+Jun 15 02:04:59 combo sshd(pam_unix)[20882]: authentication failure; ... user=root
+Jun 14 15:16:02 combo sshd(pam_unix)[19937]: check pass; user unknown
