@@ -1,0 +1,47 @@
+5 Process Management & Monitoring
+#Task 5:
+Start a background process (ping google.com > ping_test.log &).
+Use ps, top, and htop to monitor it.
+Kill the process and verify it's gone.
+
+Solution : To start a background process we have to type this particular command ping google.com > ping_test.log &
+
+ping google.com: sends ping requests to Google.
+
+> ping_test.log: redirects output to a file named ping_test.log.
+
+&: runs the command in the background. 
+
+You will se a output like
+[1] 890
+........................................................................................
+For monitoring we use ps top and htop 
+ps
+ps aux | grep ping
+This will list processes, including your ping.
+-----------------------------------------------------------------------------------------
+top
+Press top
+Then you will see your process
+Press q for quit
+-------------------------------------------------------------------------------------------
+htop
+First need to install htop
+sudo apt  install htop 
+Then press htop 
+For search Press / and then ping, to see your process
+-------------------------------------------------------------------------------------------
+For killing the process three are various step 
+But we kill a process by it's process id [PID]
+kill 890
+This will kill a entire process 
+To verify the process is permanantly gone
+Type
+ps aux | grep ping
+ Output:
+ubuntu       913  0.0  0.0   4088  1964 pts/0    S+   04:19   0:00 grep --color=auto ping
+[1]+  Terminated              ping google.com > ping_test.log
+
+This will show the process is permanantly gone
+--------------------------------------------------------------------------------------------
+
