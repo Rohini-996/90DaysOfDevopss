@@ -1,0 +1,45 @@
+5 Automate Backups with Shell Scripting
+#Task5:
+Write a shell script to back up /devops_workspace as backup_$(date +%F).tar.gz.
+Save it in /backups and schedule it using cron.
+Make the script display a success message in green text using echo -e.
+
+Solution:
+📝 Task Description
+In this task, the goal is to automate the backup of a specific folder (/devops_workspace) by writing a shell script that:
+
+Creates a compressed .tar.gz file of the folder.
+
+Names the backup file with the current date, so each one is unique.
+
+Saves the backup in the /backups directory.
+
+Prints a success message in green text using echo -e.
+
+Schedules the script to run automatically using cron.
+
+🚀 Why This Is Important
+In a DevOps environment, it's important to regularly back up your work — especially configuration files, 
+automation scripts, and project files. Manually doing this every day is time-consuming and easy to forget.
+
+By automating the process:
+
+You save time
+
+You reduce the chance of losing important files
+
+You build good DevOps habits like automation and reliability
+
+                                  How It Works:
+1. The script uses the tar command to create a .tar.gz archive of the /devops_workspace directory.
+
+2. It adds the current date to the filename so backups don’t overwrite each other.
+
+3. It creates the backup inside the /backups directory.
+
+4. It prints a green message if the backup works, or a red one if it fails.
+
+5. Finally, the script is scheduled to run automatically with a cron job (for example, daily at 2 AM).
+
+Example Backup File Created:
+/backups/backup-2025-05-11.tar.gz
