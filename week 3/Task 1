@@ -1,0 +1,84 @@
+Part 1: Account Creation
+1. Implement an option -c or --create that allows the script to create a new user account. The script should prompt the user to enter the new username and password.
+
+2. Ensure that the script checks whether the username is available before creating the account. If the username already exists, display an appropriate message and exit gracefully.
+
+3. After creating the account, display a success message with the newly created username.
+
+...................................................................................................................................................................................
+
+Solution: 
+With this task i'll be able to know how to create a user account in SHELL SCRIPT
+For creating a user account in shell script we have to follow the following steps:
+
+Step 1: Prompt for username and check availability
+
+read -p "Enter new username: " username
+
+if id "$username" &>/dev/null; then
+    echo "User '$username' already exists"
+    exit 1
+fi
+
+. Prompts the user to enter a username.
+. Uses the id command to check if the user already exists on the system.
+. If the user exists, it displays an appropriate error and exits.
+
+✅ This satisfies Task 1: Ensure username is available.
+
+----------------------------------------------------------
+
+Step 2. Prompt for password and securely handle input
+
+read -sp "Enter password for $username: " password
+echo
+
+. Prompts for the password without displaying it on the screen (-s for silent mode).
+. Uses read -sp for secure password entry.
+
+✅ This satisfies Task 2:  Password input is interactive and hidden.
+
+---------------------------------------------------------
+
+Step 3. Create the user and home directory
+
+sudo useradd -m "$username"
+
+. Uses sudo and useradd -m to create a system user with a home directory.
+. -m ensures that /home/username is created automatically.
+
+------------------------------------------------------------
+Step 4. Check if user creation succeeded
+
+if [ $? -ne 0 ]; then
+    echo "Failed to create user."
+    exit 1
+fi
+
+. Checks the exit status of useradd. If it's non-zero, it means something went wrong, and the script exits.
+
+------------------------------------------------------------
+
+Step 5. Set the password for the new user
+
+echo -e "$password\n$password" | sudo passwd "$username"
+Passes the password twice (for confirmation) to passwd using a pipe and echo -e.
+
+. This sets the user's password without prompting manually.
+
+-------------------------------------------------------------
+
+Step 6. Confirm success or failure
+
+if [ $? -eq 0 ]; then
+    echo "User '$username' created successfully."
+else
+    echo "Failed to set password."
+fi
+
+. Checks if the passwd command succeeded.
+. Displays a success message or an error based on the outcome.
+
+✅ This meets Task 3: Display a success message with the newly created username. 
+
+..................................................................
