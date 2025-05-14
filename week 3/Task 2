@@ -1,0 +1,75 @@
+# Task 2
+Part 2: Account Deletion
+Implement an option -d or --delete that allows the script to delete an existing user account. The script should prompt the user to enter the username of the account to be deleted.
+
+Ensure that the script checks whether the username exists before attempting to delete the account. If the username does not exist, display an appropriate message and exit gracefully.
+
+After successfully deleting the account, display a confirmation message with the deleted username
+
+-----------------------------------------------------------------------------------
+
+Solution: With this task i'll be able to know how to delete a user account in SHELL SCRIPT
+For deleting a user account in shell script we have to follow the following steps:
+
+Step 1: Prompt for Username
+
+The script starts by asking the user to enter the username of the account they want to delete.
+
+Command: read -p "Enter the username of account to be deleted " username
+
+.....................................................................
+
+ Step 2: Check if the User Exists
+
+ Script: if id $username &>/dev/null; then
+            echo "User '$username' exists. Proceeding with deletion...."
+         else
+            echo "User '$username' does not exist"
+            exit 1
+         fi  
+
+
+Explanation: . id $username is used to check whether the user exists on the system.
+             . &>/dev/null suppresses any output (success or error).
+             . If the command succeeds, it means the user exists, and the script continues.
+             . If the command fails, it prints a message saying the user does not exist and exits with code 1, meaning an error occurred.
+
+.....................................................................................
+
+ Step 3: Delete the User and Their Home Directory
+
+ Command: sudo userdel -r $username
+
+ Explanation: . userdel is the command to delete a user.
+              . -r option tells the system to remove the user's home directory and mail spool as well.
+              . sudo is used to make sure the command runs with administrative privileges (required to delete users).
+
+ Script: if [ $? -eq 0 ]; then
+            echo "User $username is successfully deleted"
+            exit 0
+        else
+            echo "Failed to delete $username"
+            exit 1
+        fi
+.......................................................................................
+
+Step 4: Confirm Success or Failure
+
+Script: if [ $? -eq 0 ]; then
+          echo "User $username is successfully deleted"
+          exit 0
+        else
+           echo "Failed to delete $username"
+           exit 1
+        fi
+
+Explanation: . $? checks the exit status of the previous command (userdel -r).
+              . 0 means success.
+              . Any other value means the command failed.
+              . If deletion was successful:
+              . The script prints a success message and exits with code 0.
+              . If deletion failed:
+              . The script prints an error message and exits with code 1
+
+
+...............................................................................................
