@@ -1,0 +1,77 @@
+#Task3
+Part 3: Password Reset
+1. Implement an option -r or --reset that allows the script to reset the password of an existing user account. The script should prompt the user to enter the username and the new password.
+
+2. Ensure that the script checks whether the username exists before attempting to reset the password. If the username does not exist, display an appropriate message and exit gracefully.
+
+3. After resetting the password, display a success message with the username and the updated password.
+
+------------------------------------------------------------------------------------------------------
+
+Solution:
+
+Prompt for Username
+
+Command: read -p "Enter the username for which you want to reset the password: " username
+Explanation: . The script prompts the user to input the username.
+             . The input is stored in a variable named username.
+
+# Check if the User Exists
+
+Script : if id "$username" &>/dev/null; then
+           echo "✅ User '$username' exists."
+         fi
+Explanation: . id "$username" checks if a user with that name exists on the system.
+             . &>/dev/null suppresses both stdout and stderr output.
+             . If the user exists, the script proceeds to the next steps.
+.........................................................................
+# User Exists Message
+
+Command: echo "✅ User '$username' exists."
+Explanation: Displays a confirmation message if the user exists.
+........................................................................
+# Prompt for New Password (Hidden Input)
+
+Script: read -sp "Enter new password for $username: " passwd
+        echo
+        read -sp "Confirm new password for $username: " passwd2
+        echo
+        read -sp reads the password input silently (no characters shown on screen).
+
+Explanation: . Asks the user to enter and then confirm the new password.
+             . echo ensures a newline after password inputs for cleaner output.
+............................................................................
+# Check if Passwords Match
+
+Script: if [[ "$passwd" != "$passwd2" ]]; then
+          echo "❌ Passwords do not match. Please try again."
+          exit 2
+
+echo "$username:$passwd" | chpasswd
+echo "✅ Password for user '$username' has been reset successfully."
+
+else
+    echo "❌ User '$username' does not exist."
+    exit 3
+fi
+
+Explanation: . Compares the two entered passwords.
+             . If they don't match, it prints an error and exits with exit code 2.
+
+Explanation: . This line changes the user's password using the chpasswd command.
+             . It takes a username:password pair from standard input.
+
+Explanation: . Prints a success message once the password is updated.
+
+
+Explanation: . If the id check fails, this block runs.
+            . It prints an error and exits with exit code 3.
+............................................................................................
+#Summary
+. This script is a secure and interactive way to reset a user's password on a Unix/Linux system. It:
+. Prompts for a username.
+. Verifies the user exists.
+. Prompts twice for a new password (without echoing).
+. Validates that both password entries match.
+. Sets the password using chpasswd.
+................................................................................................
