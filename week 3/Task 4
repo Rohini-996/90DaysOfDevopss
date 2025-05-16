@@ -1,0 +1,103 @@
+#Task 4
+Part 4: List User Accounts
+1. Implement an option -l or --list that allows the script to list all user accounts on the system. 
+The script should display the usernames and their corresponding user IDs (UID).
+
+Solution:
+Explanation of the above task scriptwise:
+
+# Function to list all users and their UIDs
+list_users() {
+. What it does:
+This defines a function in Bash called list_users.
+Everything between { and } is the function's body — it will run only when list_users is called later.
+
+
+Command: echo "Username       UID"
+         echo "----------------------"
+. What it does:
+These lines print a header row so the user knows what the output means.
+The second line is just a visual separator (like a line under the headers).
+
+
+   Comment # Read the /etc/passwd file line by line
+    Script: while IFS=':' read -r username _ uid _ _ _ _; do
+. This is a critical line, let's break it down:
+/etc/passwd is a file that contains information about user accounts. Each line looks like this:
+
+Script: username:password:UID:GID:comment:home_directory:shell
+        IFS=':':
+
+Explanation: IFS = Internal Field Separator
+
+             We set it to a colon : because /etc/passwd uses colons to separate fields.
+
+             read -r username _ uid _ _ _ _:
+
+             This reads each line into variables, split by ::
+
+             username: gets the 1st field (the login name)
+
+             _: is used for fields we don’t care about (we use _ to ignore them)
+
+             uid: gets the 3rd field (the UID = User ID)
+
+             the rest are ignored
+
+
+      Comment  # Print the username and UID
+      Script: printf "%-15s %s\n" "$username" "$uid"
+.  What it does:
+1. printf is used to format the output nicely:
+
+2. "%-15s" means: print the first string ($username), left-aligned in a field 15 characters wide.
+
+3. "%s\n" means: print the second string ($uid), then go to a new line.
+
+This keeps the columns neatly aligned.
+
+
+Script:  done < /etc/passwd
+.  What it does:
+1. This ends the while loop.
+
+2. It tells the shell to read each line of /etc/passwd and process it using the loop.
+
+
+}
+.  What it does:
+This closes the list_users function.
+
+Now comes the main logic that checks what the user wants to do:
+
+
+# Check if the user provided -l or --list as an argument
+Script: if [[ "$1" == "-l" || "$1" == "--list" ]]; then
+.  What it does:
+1. $1 refers to the first argument passed to the script on the command line.
+
+2. This line checks if the user gave -l or --list as the first argument.
+                       
+                      list_users
+
+.  What it does:
+If the argument is -l or --list, the script calls the function we defined earlier.
+
+else
+.  What it does:
+If the user didn’t pass a correct option, we move to the else block.
+
+    echo "Usage: $0 -l | --list"
+    echo "This script lists all user accounts and their UIDs."
+    exit 1
+.  What it does:
+echo "Usage: $0 -l | --list":
+
+This prints usage instructions.
+
+$0 is the name of the script itself (automatically filled in).
+
+exit 1:
+
+This ends the script with a status code of 1, which means error or incorrect usage.
+
