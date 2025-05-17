@@ -1,0 +1,43 @@
+Part 5: Help and Usage Information
+1. Implement an option -h or --help that displays usage information and the available command-line options for the script.
+
+Solution:
+Explanation of the following task script:
+#!/bin/bash
+This line tells the system that the script should be run using the Bash shell.
+
+Command: if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+Explanation: . "$1" is the first argument passed to the script.
+
+             . This line checks if the user provided -h or --help as the first argument.
+
+             . || means "or", so the condition is true if either is passed.
+
+    Command: echo "Usage: $0 [OPTIONS]"
+Explanation:. Prints a simple usage message.
+
+            . $0 is the name of the script (e.g., script.sh), so the user sees how to run it.
+
+    Command: echo "Options:"
+             echo "  -h, --help    Show this help message and exit"
+EXplanation: Lists the available command-line options, in this case, just the help option.
+
+             exit 0
+             Ends the script successfully after printing the help message.
+
+
+Comment # Main script logic here
+Command: echo "Script is running..."
+Explanation: If no help option is provided, the script continues normally.
+
+             This part would be replaced with the actual logic of your script.
+
+🧪 Example Use
+Run with help:
+
+./script.sh --help
+
+Output:
+Usage: ./script.sh [OPTIONS]
+Options:
+-h, --help    Show this help message and exit
