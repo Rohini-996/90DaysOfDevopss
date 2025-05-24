@@ -1,0 +1,91 @@
+#Task 1
+Week 3 Challenge 2: Automated Backup & Recovery using Cron
+This is another challenge for Day 2 of the Bash Scripting Challenge! In this challenge,
+you will create a bash script that performs a backup of a specified directory and implements a rotation mechanism to manage backups.
+
+Solution: 
+With the above task i'll be able to understand how to take a backup of a directory and how to apply 
+rotation mechanism to ensure that old backups are automatically deleted and new ones are present
+
+Explanation of the Script
+
+Script: function display_usage {
+    echo "Usage: ./backup_with_rotation.sh <path to your source> <path to your dest>"
+}
+Explanation: This defines a function called display_usage, which simply prints out how to use the script properly.
+
+Script: if [ $# -ne 2 ]; then
+          display_usage
+          exit 1
+        fi
+Explanation: This checks if exactly 2 arguments were provided (source and destination paths).
+
+             If not, it shows the usage message and exits the script.
+
+Script: src=$1
+        dest=$2
+        timestamp=$(date '+%Y-%m-%d-%H-%M')
+Explanation: Assigns the first argument to src (source directory).
+
+             Assigns the second argument to dest (destination directory).
+
+             Generates a timestamp using the current date and time, e.g., 2025-05-24-14-30.
+
+. Backup Function
+
+Script: function create_backup {
+          zip -r "${dest}/backup_${timestamp}.zip" "${src}"
+
+        if [ $? -eq 0 ]; then
+          echo "Backup completed for ${timestamp}"
+        else
+          echo "Backup failed!"
+          exit 1
+       fi
+}
+Explanation: This function creates a ZIP backup of the source folder and names it like backup_2025-05-24-14-30.zip.
+
+             It checks if the zip command succeeded ($? checks last command status).
+
+             If successful, it prints a success message; if not, it shows a failure message and stops the script.
+
+. Rotation Function
+
+Script: function rotation_mechanism {
+          backups=($(ls -t "${dest}/backup_"*.zip 2>/dev/null))
+
+        if [ "${#backups[@]}" -gt 5 ]; then
+          echo "Rotation in effect."
+          echo "Keeping only the 5 most recent backups."
+
+       backups_to_remove=("${backups[@]:5}")
+
+       for file in "${backups_to_remove[@]}";
+          do
+              rm -f "$file"
+              echo "Deleted $file"
+          done
+      fi
+}
+Explanation: This function finds all backup ZIP files in the destination folder, sorted by most recent first (ls -t).
+
+             If there are more than 5 backups, it prints a message about rotation.
+
+             It then removes all backups after the 5 most recent.
+
+             The line rm -f "$file" deletes the old backup files.
+
+. Run the Script
+
+create_backup
+rotation_mechanism
+
+First, it creates a new backup.
+Then, it runs the rotation function to clean up old ones.
+
+✅ Summary
+. Protects space by limiting backups to the 5 most recent.
+
+. Automatically rotates old backups.
+
+. Easy to run with 2 arguments: source and destination paths.
