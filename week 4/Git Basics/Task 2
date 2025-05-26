@@ -1,0 +1,30 @@
+#Task 2: Initialize a Local Repository and Create a File
+
+Solution:
+Step 1: Creating My Challenge Workspace
+I started by setting up a new directory inside my cloned repository:
+
+Command: mkdir week-4-challenge
+Change Directory: cd week-4-challenge
+
+Step 2: Initializing a Git Repository
+Version control begins here! I initialized the folder as a Git repository:
+
+Command: git init
+This turns the folder into a trackable project where every change can be monitored. It’s like giving your project memory! 🧠
+
+Step 3: Creating the First File
+I created a simple text file with some introduction:
+
+echo "My name is Rohini and I want to be a successful Devops Enginner" > info.txt
+This was just a basic intro file, but it's a great to start practicing Git operations.
+
+Step 4: Staging and Committing
+
+Time to track the changes:
+git add info.txt
+git commit -m "Initial commit: Add info.txt with introductory content"
+✅ Staging means preparing the file for commit.
+✅ Committing saves the file’s current state with a message – like a journal entry for your code!
+
+And that's it you are good to go with staging, tracking and commiting on git
