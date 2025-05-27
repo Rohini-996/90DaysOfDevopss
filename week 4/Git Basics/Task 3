@@ -1,0 +1,34 @@
+#Task 3: Configure Remote URL with PAT and Push/Pull Configure 
+Remote URL with Your PAT:
+
+Solution: Ok, so I am working with a GitHub repository and want to push and pull code without 
+typing my username and password or Personal Access Token (PAT) every time.
+To do this, I am going to update the remote URL of my Git project to include my GitHub username and PAT (Personal Access Token).
+
+----------------------------------------------------------------------------------------------------
+
+Step-by-Step Breakdown
+✅ 1. Set the Remote URL with PAT
+You're telling Git:
+“Hey, here's the GitHub address to push and pull code — and here's my login info (username + PAT).”
+
+git remote add origin https://<your-username>:<your-PAT>@github.com/<your-username>/90DaysOfDevOps.git
+
+set url
+e.g git remote set-url origin https://Rohini-996:PAT@github.com/Rohini-996/90DaysOfDevOps.git
+Replace <your-username> with your GitHub username and <your-PAT> with your actual PAT.
+
+--------------------------------------------------------------------------------------------------------
+
+✅ 2. Push Your Code to GitHub
+Now that Git knows where your repo is and how to log in, you can push your code (send it to GitHub):
+
+git push origin main
+This will push your code to github
+
+-------------------------------------------------------------------------------------------------------------
+
+✅ 3. Pull Changes (Optional)
+To check that your setup works correctly, you can try to pull code from GitHub:
+
+git pull origin main
