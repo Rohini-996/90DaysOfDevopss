@@ -1,0 +1,29 @@
+#Task 5: Advanced Branching and Switching
+Solution: 
+
+✅1. Create a New Branch
+First, you create a new branch called feature-update. A branch is like a separate workspace where you can make changes
+without affecting the main project.
+
+Command: git checkout -b feature-update
+Switch to the New Branch
+Next, you switch your working area to that new branch so you can start making changes there.
+
+✅2. git checkout feature-update
+Modify the File and Commit Changes
+Now, edit the file info.txt — maybe add more details or improve its content. After making your changes:
+
+e.g echo "Hello I am in feature branch" > info.txt
+Stage the file:
+git add info.txt
+Commit the changes with a clear message describing what you did:
+msg = git commit -m "Feature update: Enhance info.txt with additional details"
+
+✅3. Push the Branch to GitHub
+Upload your branch and changes to the remote repository on GitHub:
+
+git push origin feature-update
+Merge via Pull Request
+Finally, open a Pull Request on GitHub to merge your changes from feature-update into the main branch. 
+This lets others review your work before it becomes part of the main project.
+
