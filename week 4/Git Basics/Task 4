@@ -1,0 +1,17 @@
+#Task 4: Explore Your Commit History
+
+Solution: 
+✅ Step 1: Open Your Terminal or Git Bash
+Navigate to the directory of your Git project using:
+e.g  cd bash_scripts
+....................................................
+
+✅ Step 2: View the Commit History
+Run the following command to view the Git log:
+Command: git log
+This will show output like:
+commit 0e07bd36b4419caf42548d2e642c74dcb54c1be0 (HEAD -> master)
+Author: Rohini-996 <rohini99665980@gmail.com>
+Date:   Tue May 27 06:28:29 2025 +0000
+    added local
+.........................................................
