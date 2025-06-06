@@ -1,6 +1,8 @@
 Document in solution.md
 . Steps to create a PR.
+<br>
 . Best practices for writing PR descriptions.
+<br>
 . Handling review comments.
 
 Solution: 
