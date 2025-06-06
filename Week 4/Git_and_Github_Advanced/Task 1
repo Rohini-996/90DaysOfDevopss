@@ -1,0 +1,50 @@
+Task 1: Working with Pull Requests (PRs)
+Scenario: You are working on a new feature and need to merge your changes into the main branch using a Pull Request.
+
+Solution: 
+
+✅ Step-by-Step Guide
+1️. Fork & Clone the Repository
+First, fork the repository to your own GitHub account. Then, clone it locally:
+
+git clone <your-forked-repo-url>
+cd <repo-name>
+Tip: You can copy the clone URL from the green “Code” button on your forked repo.
+
+2️. Create a Feature Branch
+Always work on a separate branch to keep your main branch clean:
+git checkout -b feature-branch
+Give your branch a meaningful name (e.g., feature-branch).
+
+3️. Make Your Changes
+echo "New Feature" >> feature.txt
+Then stage and commit your changes:
+
+git add .
+git commit -m "feat: added a new feature"
+
+4️. Push Your Branch to GitHub
+Send your changes to your remote fork:
+
+git push origin feature-branch
+
+5️. Create a Pull Request
+Go to your GitHub repo and:
+
+Click “Compare & pull request”
+
+Add a clear title and description
+
+Choose the correct base (usually main) and compare branches
+
+Request a review from a teammate or maintainer
+
+6️. Merge the PR
+Once your PR is approved:
+Click “Merge Pull Request”
+
+
+✅ Done!
+🎉 You've successfully created and merged a Pull Request!
+
+
