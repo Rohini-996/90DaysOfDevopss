@@ -1,3 +1,4 @@
+Task 1
 Document in solution.md
 <br>
 . Steps to create a PR.
@@ -88,3 +89,59 @@ Leave a comment like:
 “Thanks! Changes pushed, please take another look. 🙌”
 Wait for approval ✅
 Merge using the team's preferred method
+
+
+Task 2 
+Document in solution.md
+<br>
+Differences between reset and revert.
+<br>
+When to use each method.
+<br>
+
+Solution:
+📄 Differences Between git reset and git revert
+
+🔁 git reset – Rewriting History
+What it does:
+
+1. Moves the HEAD pointer and removes commits from the history.
+
+2. Can also modify the staging area and working directory depending on the mode:
+
+3. --soft: Keeps changes staged.
+
+4. --mixed: Keeps changes in the working directory, unstaged.
+
+5. --hard: Deletes changes from both the working directory and staging area.
+
+When to use it:
+
+. You made a mistake in your local repo and haven't pushed the commit yet.
+
+. You want to modify the commit (e.g., change the message or files).
+
+. You’re okay with rewriting history.
+
+⚠️ Warning:
+Never use reset on commits that have already been pushed/shared with others — it rewrites history and can cause conflicts.
+
+🔄 git revert – Undo with a New Commit
+What it does:
+
+1. Creates a new commit that reverses the changes introduced by a previous commit.
+
+2. Does not remove the original commit from history.
+
+3. Safe to use on shared/public branches.
+
+When to use it:
+
+. You need to undo a commit that has already been pushed.
+
+. You want to preserve a clean and traceable history.
+
+. You're collaborating with others and need to avoid rewriting history.
+
+✅ Safe and clean:
+This is the recommended method when working on shared repositories or teams.
