@@ -1,0 +1,51 @@
+Task 2: Undoing Changes – Reset & Revert
+Scenario: You accidentally committed incorrect changes and need to undo them.
+
+Solution:
+
+✅ Step-by-Step Explanation
+1. Create and commit a file
+echo "Wrong code" >> wrong.txt
+git add .
+git commit -m "Committed by mistake"
+You created a file wrong.txt and added the line "Wrong code" to it. Then you added it to the staging area and committed it. Now your commit history has this unwanted commit.
+
+🔁 Undoing the Commit – Using git reset
+2. Soft Reset
+git reset --soft HEAD~1
+. What it does: Moves the HEAD back one commit (removes the last commit) but keeps the changes staged.
+. Use case: You want to redo the commit message or add more files before recommitting.
+
+📌 After this command:
+Commit is undone.
+Changes are still staged (git status will show them in the staging area).
+
+3. Mixed Reset
+git reset --mixed HEAD~1
+. What it does: Moves the HEAD back one commit and unstages the changes.
+. Use case: You want to modify the files before re-adding and committing them.
+
+📌 After this command:
+Commit is undone.
+Changes are still in the working directory but not staged.
+
+4. Hard Reset
+git reset --hard HEAD~1
+. What it does: Moves the HEAD back one commit and deletes all changes in the working directory and staging area.
+. Use case: You are sure the last commit and changes were wrong and you don’t need them anymore.
+
+📌 After this command:
+Commit is gone.
+Changes are also gone (irreversibly unless you use recovery tools).
+
+⚠️ Be careful with this one—you can lose work.
+
+🔄 Reverting a Commit Safely
+5. Revert the commit
+git revert HEAD
+. What it does: Creates a new commit that undoes the effects of the last commit (instead of removing it from history).
+. Use case: You already pushed the bad commit and want to undo it safely without rewriting history.
+
+📌 After this command:
+A new commit is added that negates the last one.
+This is safe for shared/public repositories.
