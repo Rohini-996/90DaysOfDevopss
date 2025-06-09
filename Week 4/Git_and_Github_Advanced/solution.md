@@ -194,6 +194,56 @@ Solution:
  <br>
 . git stash apply can apply the same stash multiple times if needed.
 
+#Task 4
+Document in solution.md
+<br>
+How cherry-picking is used in bug fixes.
+<br>
+Risks of cherry-picking.
+<br>
+
+1 What Is Cherry-Picking in Git?
+<br>
+Cherry-picking means taking one specific commit from one branch and applying it to another. You use this when you only want a particular change, not everything from a branch.
+
+This is especially useful when fixing bugs.
+
+How It Helps with Bug Fixes
+Let’s say a developer fixed a bug in a branch called bugfix-branch, but that branch isn’t ready to be merged into main yet.
+
+Instead of waiting, you can cherry-pick just the bug fix commit into main so it can be released right away.
+
+✅ Example
+git checkout main
+git cherry-pick abc1234
+Here, abc1234 is the commit hash of the bug fix you want to apply.
+
+2 ⚠️ Risks of Cherry-Picking
+<br>
+Cherry-picking is powerful but should be used with care. Here are the main things to watch out for:
+
+1. Merge Conflicts
+<br>
+If the code in the two branches is very different, Git might not know how to apply the changes. You’ll get a conflict and will need to fix it manually.
+
+3. Missing Context
+<br>
+Sometimes, a bug fix depends on other code changes that weren’t cherry-picked. Without them, the fix might break or not work at all.
+
+Example: The fix uses a helper function that doesn’t exist in the target branch. That will cause an error.
+
+3. Confusing Git History
+<br>
+A cherry-picked commit is treated as a new commit with a different ID. This can make the history look messy and confusing, especially if the original branch is merged later.
+
+5. Harder Future Merges
+<br>
+If you later merge the original branch into your current one, Git might not realize the fix was already applied. You could get conflicts or duplicate code.
+
+7. More Maintenance
+<br>
+When you cherry-pick often, it becomes harder to keep track of which fixes went where. Teams may forget or duplicate work without
+realizing it.
 
 
 
