@@ -229,20 +229,25 @@ Here, abc1234 is the commit hash of the bug fix you want to apply.
 Cherry-picking is powerful but should be used with care. Here are the main things to watch out for:
 
 1. Merge Conflicts
+
 If the code in the two branches is very different, Git might not know how to apply the changes. You’ll get a conflict and will need to fix it manually.
 
-2. Missing Context
+3. Missing Context
+   
 . Sometimes, a bug fix depends on other code changes that weren’t cherry-picked. Without them, the fix might break or not work at all.
 
 . Example: The fix uses a helper function that doesn’t exist in the target branch. That will cause an error.
 
 3. Confusing Git History
+   
 . A cherry-picked commit is treated as a new commit with a different ID. This can make the history look messy and confusing, especially if the   original branch is merged later.
 
-4. Harder Future Merges
+5. Harder Future Merges
+   
 . If you later merge the original branch into your current one, Git might not realize the fix was already applied. You could get conflicts or    duplicate code.
 
-5. More Maintenance
+7. More Maintenance
+   
 . When you cherry-pick often, it becomes harder to keep track of which fixes went where. Teams may forget or duplicate work without
   realizing it.
 
