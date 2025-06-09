@@ -157,26 +157,42 @@ Difference between git stash pop and git stash apply.
 Solution:
 
 1. When to Use git stash
+<br>
 
 . Use git stash when you have uncommitted changes (staged or unstaged) but need to:
+<br>
 . Switch branches temporarily
+<br>
 . Pull updates from a remote branch without merge conflicts
+<br>
 . Test something else without losing your current work
+<br>
 . Keep your working directory clean while debugging or exploring
+<br>
 . It allows you to save your current progress without committing, so you can safely return to it later.
+<br>
 
 2. Difference between git stash pop and git stash apply.
+<br>
 
 1 git stash pop
+<br>
 . git stash pop also puts your saved changes back, but it removes those changes from the stash list after applying them.
+<br>
 . Use git stash pop if you want to restore and delete the stash in one step.
+<br>
 . Use git stash pop to restore changes and delete stash
+<br>
 
 2 git stash apply
+<br>
 . git stash apply puts your saved changes back into your working files, but it keeps a copy of those 
   changes saved in the stash list.
+  <br>
 . Use git stash apply if you want to reuse the stash later.
+ <br>
 . Use git stash apply to restore changes but keep stash.
+ <br>
 . git stash apply can apply the same stash multiple times if needed.
 
 
