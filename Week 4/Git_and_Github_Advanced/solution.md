@@ -203,6 +203,7 @@ How cherry-picking is used in bug fixes.
 Risks of cherry-picking.
 <br>
 
+Solution:
 1 What Is Cherry-Picking in Git?
 <br>
 <br>
@@ -212,7 +213,7 @@ Risks of cherry-picking.
 
 . How It Helps with Bug Fixes
   <br>
-  Let’s say a developer fixed a bug in a branch called bugfix-branch, but that branch isn’t ready to be merged into main yet.
+   Let’s say a developer fixed a bug in a branch called bugfix-branch, but that branch isn’t ready to be merged into main yet.
 
 Instead of waiting, you can cherry-pick just the bug fix commit into main so it can be released right away.
 
@@ -230,7 +231,7 @@ Cherry-picking is powerful but should be used with care. Here are the main thing
 
 1. Merge Conflicts
 
-If the code in the two branches is very different, Git might not know how to apply the changes. You’ll get a conflict and will need to fix it manually.
+. If the code in the two branches is very different, Git might not know how to apply the changes. You’ll get a conflict and will need to fix      it manually.
 
 3. Missing Context
    
@@ -240,16 +241,16 @@ If the code in the two branches is very different, Git might not know how to app
 
 3. Confusing Git History
    
-. A cherry-picked commit is treated as a new commit with a different ID. This can make the history look messy and confusing, especially if the   original branch is merged later.
+. A cherry-picked commit is treated as a new commit with a different ID. This can make the history look messy and confusing, especially if the    original branch is merged later.
 
 5. Harder Future Merges
    
-. If you later merge the original branch into your current one, Git might not realize the fix was already applied. You could get conflicts or    duplicate code.
+. If you later merge the original branch into your current one, Git might not realize the fix was already applied. You could get conflicts or     duplicate code.
 
 7. More Maintenance
    
 . When you cherry-pick often, it becomes harder to keep track of which fixes went where. Teams may forget or duplicate work without
-  realizing it.
+   realizing it.
 
 
 
