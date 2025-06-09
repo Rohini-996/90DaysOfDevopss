@@ -1,0 +1,29 @@
+#Task 4: Cherry-Picking - Selectively Apply Commits
+Scenario: A bug fix exists in another branch, and you only want to apply that specific commit.
+
+Solution:
+Step-by-Step explanation:
+✅ Step 1: Find the Commit to Cherry-Pick
+List the commits in the other branch (e.g., bugfix-branch) to locate the desired commit hash:
+
+git log --oneline bugfix-branch
+Look for the commit message that corresponds to the bug fix you want to apply, and copy its commit hash (e.g., abc1234).
+
+✅ Step 2: Switch to Your Target Branch
+Make sure you're on the branch where you want to apply the fix (e.g., main):
+git checkout main
+
+✅ Step 3: Cherry-Pick the Specific Commit
+Apply the commit by using its hash:
+git cherry-pick abc1234
+Replace abc1234 with the actual commit hash.
+
+✅ Step 4: Resolve Any Conflicts (If Any)
+If there are conflicts during cherry-picking:
+Git will pause the process and mark conflicting files.
+Open the conflicted files and manually resolve the conflicts.
+After resolving, add the resolved files:
+git add <resolved-file>
+
+✅ Step 5: Continue the cherry-pick:
+git cherry-pick --continue
