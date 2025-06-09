@@ -147,17 +147,17 @@ When to use it:
 This is the recommended method when working on shared repositories or teams.
 
 #Task 3
+<br>
 Document in solution.md
 <br>
-When to use git stash.
+1 When to use git stash.
 <br>
-Difference between git stash pop and git stash apply.
+2 Difference between git stash pop and git stash apply.
 <br>
 
 Solution:
 
 1. When to Use git stash
-<br>
 
 . Use git stash when you have uncommitted changes (staged or unstaged) but need to:
 <br>
@@ -173,7 +173,6 @@ Solution:
 <br>
 
 2. Difference between git stash pop and git stash apply.
-<br>
 
 1 git stash pop
 <br>
