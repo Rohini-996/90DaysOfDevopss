@@ -1,4 +1,4 @@
-Task 1
+#Task 1
 Document in solution.md
 <br>
 . Steps to create a PR.
@@ -91,7 +91,7 @@ Wait for approval ✅
 Merge using the team's preferred method
 
 
-Task 2 
+#Task 2 
 Document in solution.md
 <br>
 Differences between reset and revert.
@@ -145,3 +145,41 @@ When to use it:
 
 ✅ Safe and clean:
 This is the recommended method when working on shared repositories or teams.
+
+#Task 3
+Document in solution.md
+<br>
+When to use git stash.
+<br>
+Difference between git stash pop and git stash apply.
+<br>
+
+Solution:
+
+1. When to Use git stash
+
+. Use git stash when you have uncommitted changes (staged or unstaged) but need to:
+. Switch branches temporarily
+. Pull updates from a remote branch without merge conflicts
+. Test something else without losing your current work
+. Keep your working directory clean while debugging or exploring
+. It allows you to save your current progress without committing, so you can safely return to it later.
+
+2. Difference between git stash pop and git stash apply.
+
+1 git stash pop
+. git stash pop also puts your saved changes back, but it removes those changes from the stash list after applying them.
+. Use git stash pop if you want to restore and delete the stash in one step.
+. Use git stash pop to restore changes and delete stash
+
+2 git stash apply
+. git stash apply puts your saved changes back into your working files, but it keeps a copy of those 
+  changes saved in the stash list.
+. Use git stash apply if you want to reuse the stash later.
+. Use git stash apply to restore changes but keep stash.
+. git stash apply can apply the same stash multiple times if needed.
+
+
+
+
+
