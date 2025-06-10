@@ -253,6 +253,10 @@ Cherry-picking is powerful but should be used with care. Here are the main thing
    realizing it.
 
 #Task 5
+Document in solution.md
+
+- How cherry-picking is used in bug fixes.
+- Risks of cherry-picking.
 
 1. Difference Between Merge and Rebase
 
@@ -281,4 +285,57 @@ Git Rebase
 git checkout feature-branch
 git rebase main
 
+1. 🔒 Only Rebase Your Own Branches (Not Shared Ones)
+What this means:
+If you're the only one working on a branch, feel free to rebase. But if your teammate has also started using it — don’t!
 
+Why?
+Rebasing rewrites history. If someone else already based their work on the old version, you’ll both run into problems when pushing or pulling.
+
+
+2. ✨ Use Rebase to Clean Up Your Commits
+What this means:
+As you’re working, you might make lots of small or messy commits:
+fixed bug, oops forgot file, updated again.
+
+Before you share your branch, you can use rebase to combine (squash) and rename those commits into something cleaner — like:
+
+Add login feature with form validation
+
+How to do it:
+
+git rebase -i HEAD~3
+This opens a menu where you can squash or rename the last 3 commits.
+Very helpful for making your code history easier to understand!
+
+3. 🔄 Rebase Onto the Latest Main Branch
+What this means:
+Let’s say you started your feature branch a few days ago. Since then, other people have added changes to the main branch.
+
+Before you merge your branch back in, you should bring in those updates by rebasing onto the latest main. This helps you avoid last-minute merge conflicts.
+
+How to do it:
+
+git fetch origin
+git rebase origin/main
+This updates your branch as if you started it from the latest version of main.
+
+4. 🧩 Handle Conflicts Carefully During Rebase
+What this means:
+Sometimes, Git doesn’t know how to automatically combine your code with the latest changes from main.
+
+When that happens, Git will pause and ask you to fix the conflicting files.
+
+Steps:
+
+Git shows you which files have conflicts.
+
+Open and fix those files manually.
+
+Tell Git you fixed it:
+
+git add .
+git rebase --continue
+If you get stuck, you can always cancel:
+
+git rebase --abort
