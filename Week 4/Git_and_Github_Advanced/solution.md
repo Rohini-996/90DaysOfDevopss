@@ -252,6 +252,33 @@ Cherry-picking is powerful but should be used with care. Here are the main thing
 . When you cherry-pick often, it becomes harder to keep track of which fixes went where. Teams may forget or duplicate work without
    realizing it.
 
+#Task 5
 
+1. Difference Between Merge and Rebase
+
+ Git Merge
+- When you use git merge, you’re bringing changes from one branch into another.
+- Git does this by creating a special merge commit that links the two histories together.
+- This method preserves the original history — nothing gets deleted or changed.
+- That’s why merge is a great choice when working with a team — everyone can see how changes came together over time.
+
+It’s safe and transparent.
+
+📌 Example:
+Let’s say you’ve been working on a feature in a branch called feature-branch, and now you want to bring those
+changes into main. Here’s how you’d do it:
+
+git checkout main            # Switch to the main branch
+git merge feature-branch     # Merge changes from feature-branch into main
+
+
+Git Rebase
+- git rebase moves or reapplies commits from one branch onto another as if they were based on that branch.
+- It rewrites commit history to make it look linear.
+- Rebase results in a cleaner, more linear project history — like “as if the changes were made sequentially.”
+- Rebase is best used for local feature branch updates before merging to main.
+- Example:
+git checkout feature-branch
+git rebase main
 
 
