@@ -1,0 +1,27 @@
+📘 Task 5: Rebasing – Keeping a Clean Commit History
+Scenario: Your branch is behind the main branch and needs to be updated without extra merge commits.
+
+Solution:
+✅ Step-by-step Instructions
+1. Fetch the latest changes from the remote:
+   git fetch origin main
+   This updates your local reference to origin/main but doesn’t change your working branch yet.
+
+2. Rebase your feature branch onto main:
+
+   git rebase origin/main
+
+   This will reapply your local commits on top of the latest commits from main. It rewrites history so that it looks 
+   like you built your work on the latest main.
+
+3. If there are any conflicts during the rebase:
+
+  Resolve the conflicts manually in the affected files.
+
+  After resolving, mark them as resolved:
+
+  git add <file>
+
+4. Then continue the rebase:
+
+git rebase --continue
