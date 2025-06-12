@@ -255,8 +255,8 @@ Cherry-picking is powerful but should be used with care. Here are the main thing
 #Task 5
 Document in solution.md
 
-- How cherry-picking is used in bug fixes.
-- Risks of cherry-picking.
+- Difference between merge and rebase.
+- Best practices for rebasing.
 
 1. Difference Between Merge and Rebase
 
