@@ -1,0 +1,50 @@
+#Task 2: Exploring Docker Terminologies and Components
+
+Key Docker Terms (What They Mean)
+1. Image
+Think of a Docker image like a recipe or blueprint. It has everything your application needs to run: the code,
+libraries, tools, and settings. You can use it to create containers.
+
+2. Container
+A container is like a running instance of the image (kind of like a dish made from the recipe). It runs your application
+in an isolated space so it doesn’t mess with other applications. You can start, stop, and delete containers easily.
+
+3. Dockerfile
+This is a plain text file with step-by-step instructions for building a Docker image. You write things like “install this”, 
+“copy that”, and “run this command.” Docker reads the file and builds your image from it.
+
+4. Volume
+Containers don’t save data permanently by default. Volumes are like special folders that allow containers to save and access data
+even after they stop or restart. Useful for databases and app files.
+
+5. Network
+Docker allows containers to talk to each other or to the internet through networks. You can create custom networks so that only certain
+containers can connect and communicate.
+
+🛠 Main Docker Components (What Makes Docker Work)
+1. Docker Engine
+This is the main part of Docker that does all the heavy lifting.
+
+1. Docker Daemon (dockerd): This runs in the background and actually builds, runs, and manages containers.
+
+2. Docker CLI (docker): This is the command-line tool you type commands into (like docker run, docker build).
+
+3. REST API: A way for tools or programs to talk to Docker automatically.
+
+How they work together: When you type a command, the CLI sends it to the daemon, which does the work of creating or managing containers.
+
+2. Docker Hub
+Think of it like the App Store for Docker images. You can:
+
+. Download images made by others
+. Upload your own images
+. Share images with your team
+
+You use commands like docker pull to get images from Docker Hub, and docker push to upload your own.
+
+3. Docker Compose
+When your app needs more than one container (like a web app + database), Docker Compose helps you define and run them together using 
+one file (docker-compose.yml).
+
+How it helps: Instead of starting each container one-by-one, you can start everything at once with one command.
+
