@@ -1,0 +1,78 @@
+📘 Task 3: Explore Docker Terminologies and Components
+🧩 Key Docker Terminologies
+1. Image
+Think of an image like a blueprint or recipe for your application. It contains everything needed to run your app: the code, libraries, dependencies, 
+settings, and even the OS environment.
+
+Example: You might have a Python app, so you build a Docker image that includes Python, your app code, and any packages it needs.
+
+2. Container
+. A container is like a running instance of an image. Once you start an image, it becomes a container.
+. Imagine you're baking a cake using a recipe (the image). The cake you bake (the actual product) is the container.
+. Containers are lightweight, portable, and isolated—meaning your app runs the same on any machine.
+
+3. Dockerfile
+. This is a text file with step-by-step instructions on how to build a Docker image.
+. It’s like writing down your cake recipe: what ingredients (base image, packages) to use, how to prepare them (install dependencies), and what to do when it’s ready (run the app).
+
+Example:
+
+Dockerfile
+
+FROM python:3.10
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
+
+4. Volume
+. Volumes are like external storage for containers. Containers are temporary—if they’re deleted, their data is gone too. Volumes keep data safe and persistent.
+. You use volumes when you want to save things like logs, databases, or user uploads outside the container.
+
+5. Network
+. Docker networks allow containers to communicate with each other.
+. Think of each container as a person in a room. A Docker network is the Wi-Fi that connects them so they can talk.
+
+Example: A web app container can connect to a database container through a shared Docker network.
+
+🛠️ Main Docker Components & How They Work Together
+1. Docker Engine
+. This is the core of Docker. It's the technology that lets you build and run containers. It includes:
+. Docker Daemon (dockerd) – The background service that manages containers.
+
+Docker CLI (docker) – 
+. The command-line tool you use to talk to Docker (e.g., docker run, docker build).
+
+REST API 
+. Allows programs to talk to Docker programmatically (e.g., GUIs or tools like Portainer).
+. Think of Docker Engine as the heart that pumps life into everything. You type commands, the engine makes it happen.
+
+Docker Hub
+. Docker Hub is a cloud-based registry where people store and share Docker images.
+. It’s like GitHub, but for Docker images. You can download images (like nginx, mysql, etc.) or upload your own.
+. Example: docker pull nginx downloads the official NGINX image from Docker Hub.
+
+Docker Images
+. As mentioned earlier, these are the templates used to build containers. You usually build them using a Dockerfile, and optionally publish them to Docker Hub.
+
+Containers
+. These are the running applications created from Docker images. Each container is isolated, but you can link them through networks or share files using volumes.
+
+Docker Compose
+. A tool that lets you define and run multi-container applications with one simple file (docker-compose.yml).
+. Great for when your app has multiple parts, like a frontend, backend, and database.
+
+
+. How They All Work Together
+1. You write a Dockerfile to define how your app should run.
+
+2. You build a Docker image from that file using docker build.
+
+3. You start a container from the image using docker run.
+
+4. If needed, you use volumes to store data, and networks to connect containers.
+
+5. You can upload your image to Docker Hub to share or deploy elsewhere.
+
+6. Docker Engine handles everything behind the scenes to make this work.
+
