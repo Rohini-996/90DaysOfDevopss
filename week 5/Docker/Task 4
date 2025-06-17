@@ -1,0 +1,38 @@
+#Task 5: Manage Your Image with Docker Hub
+Solution:
+In this task, I learned how to tag, push, and pull Docker images using Docker Hub
+
+Here’s a step-by-step breakdown of the process:
+
+🔖 1. Tag Your Docker Image
+Before pushing an image to Docker Hub, it's a best practice to tag it properly. Tagging helps version your images and makes it easier to manage different releases.
+
+Command: docker tag <your-username>/sample-app:latest <your-username>/sample-app:v1.0
+Explanation:
+. The first part (your-username/sample-app:latest) is your existing local image.
+. The second part (your-username/sample-app:v1.0) is the new tag you want to assign.
+. v1.0 helps identify this as version 1.0 of your app.
+
+🔐 2. Log in to Docker Hub
+Before you can push your image, you need to authenticate your Docker CLI with Docker Hub.
+
+Command: docker login
+What Happens:
+. You’ll be prompted to enter your Docker Hub username and password.
+. On success, Docker stores your login credentials locally for future actions.
+
+📤 3. Push Your Image to Docker Hub
+Now that your image is tagged and you're logged in, you can upload (push) it to Docker Hub.
+
+Command: docker push your-username/sample-app:v1.0
+Result:
+. Docker uploads the image layer by layer.
+. Once complete, your image will be available on your Docker Hub repository for others (or yourself) to pull and use.
+
+📥 4. Pull the Image (Optional – for Verification)
+To confirm everything worked, try pulling the image from Docker Hub onto any machine (even the same one).
+Command: docker pull your-username/sample-app:v1.0
+Why This Matters:
+. It verifies the image is publicly accessible and can be used across environments.
+. It also simulates a real-world scenario where another developer or service needs your image.
+
